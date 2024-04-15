@@ -1,0 +1,38 @@
+name: SonarCloud Scan
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+  pull_request:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Change this to the Node.js version you are using
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@v1
+      with:
+        organization: "<Your SonarCloud organization>"
+        token: ${{ secrets.SONAR_TOKEN }}  # Ensure you have this token stored in GitHub Secrets
+        projectKey: "<Your SonarCloud project key>"
+        projectName: "<Your SonarCloud project name>"
+        extraProperties: |
+          sonar.sourceEncoding=UTF-8
