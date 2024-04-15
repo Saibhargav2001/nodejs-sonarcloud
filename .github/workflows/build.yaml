@@ -35,4 +35,4 @@ jobs:
       with:
         args: >
             -Dsonar.organization: saibhargav2001
-            -Dsonar.projectKey=SonarCloudCodeAnalysis
+            -Dsonar.projectKey=nodejs-sonarcloud
