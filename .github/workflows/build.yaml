@@ -30,7 +30,7 @@ jobs:
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@v1
       with:
-        organization: "<Your SonarCloud organization>"
+        organization: "saibhargav2001"
         token: ${{ secrets.SONAR_TOKEN }}  # Ensure you have this token stored in GitHub Secrets
         projectKey: "<Your SonarCloud project key>"
         projectName: "<Your SonarCloud project name>"
