@@ -10,7 +10,7 @@ on:
   #     - main  # Change this to your main branch name
 
 jobs:
-  sonarcloud:
+  build:
     runs-on: ubuntu-latest
     
     steps:
