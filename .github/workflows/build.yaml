@@ -29,11 +29,10 @@ jobs:
       run: npm test
 
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@v1
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-        organization: "saibhargav2001"
-        token: ${{ secrets.SONAR_TOKEN }}  # Ensure you have this token stored in GitHub Secrets
-        projectKey: "<Your SonarCloud project key>"
-        projectName: "<Your SonarCloud project name>"
-        extraProperties: |
-          sonar.sourceEncoding=UTF-8
+        args: >
+            -Dsonar.organization: saibhargav2001
+            -Dsonar.projectKey=SonarCloudCodeAnalysis
